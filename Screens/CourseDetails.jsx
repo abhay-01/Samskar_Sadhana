@@ -11,6 +11,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 import Feather from "@expo/vector-icons/Feather";
+import { BookOpenIcon } from "react-native-heroicons/outline";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const CourseDetails = () => {
@@ -81,10 +82,12 @@ const CourseDetails = () => {
           <Ionicons name="home-outline" size={24} color="#000" />
           <Text style={styles.bottomNavText}>Home</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.bottomNavItem}>
-          <Ionicons name="search-outline" size={24} color="#000" />
-          <Text style={styles.bottomNavText}>Search</Text>
-        </TouchableOpacity>
+        <TouchableOpacity style={styles.bottomNavItem} onPress={()=> navigation.navigate("ReadStory")}>
+            <BookOpenIcon name="book-open" size={24} color="#000" />
+
+
+            <Text style={styles.bottomNavText}>Read</Text>
+          </TouchableOpacity>
         <TouchableOpacity
           style={styles.bottomNavItem}
           onPress={() => navigation.navigate("StoryWrite")}

@@ -13,6 +13,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
 import Feather from "@expo/vector-icons/Feather"
+import {BookOpenIcon} from "react-native-heroicons/outline"
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -107,16 +108,18 @@ const HomeScreen = () => {
             <Ionicons name="home-outline" size={24} color="#000" />
             <Text style={styles.bottomNavText}>Home</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.bottomNavItem}>
-            <Ionicons name="search-outline" size={24} color="#000" />
-            <Text style={styles.bottomNavText}>Search</Text>
+          <TouchableOpacity style={styles.bottomNavItem} onPress={()=> navigation.navigate("ReadStory")}>
+            <BookOpenIcon name="book-open" size={24} color="#000" />
+
+
+            <Text style={styles.bottomNavText}>Read</Text>
           </TouchableOpacity>
           <TouchableOpacity
           style={styles.bottomNavItem}
           onPress={() => navigation.navigate("StoryWrite")}
         >
                     <Feather name="plus-circle" size={34} color="#000" />
-            <Text style={styles.bottomNavText}>Chat</Text>
+            <Text style={styles.bottomNavText}>Write</Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.bottomNavItem}>
