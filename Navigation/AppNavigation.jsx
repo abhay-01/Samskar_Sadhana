@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
@@ -8,6 +8,7 @@ import HomeScreen from "../Screens/HomeScreen";
 import CourseDetails from "../Screens/CourseDetails";
 import StoryWrite from "../Screens/StoryWrite";
 import ReadStory from "../Screens/ReadStory";
+import GenreDetails from "../Screens/GenreDetails"
 
 const Stack = createStackNavigator();
 const AppNavigation = () => {
@@ -52,6 +53,13 @@ const AppNavigation = () => {
         <Stack.Screen
           name="ReadStory"
           component={ReadStory}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="GenreDetails"
+          component={GenreDetails}
           options={{
             headerShown: false,
           }}

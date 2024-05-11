@@ -61,7 +61,7 @@ const CourseDetails = () => {
               onPress={() => {
                 setIsIconPressed(true);
                 console.log(`Playing ${title}`);
-                navigation.navigate('GenreDetails.jsx');
+                navigation.navigate('GenreDetails');
                 setTimeout(() => setIsIconPressed(false), 200);
               }}
             >
@@ -84,8 +84,6 @@ const CourseDetails = () => {
         </TouchableOpacity>
         <TouchableOpacity style={styles.bottomNavItem} onPress={()=> navigation.navigate("ReadStory")}>
             <BookOpenIcon name="book-open" size={24} color="#000" />
-
-
             <Text style={styles.bottomNavText}>Read</Text>
           </TouchableOpacity>
         <TouchableOpacity
