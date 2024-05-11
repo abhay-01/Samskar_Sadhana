@@ -7,6 +7,7 @@ import Login from "../Screens/Login";
 import HomeScreen from "../Screens/HomeScreen";
 import CourseDetails from "../Screens/CourseDetails";
 import StoryWrite from "../Screens/StoryWrite";
+import ReadStory from "../Screens/ReadStory";
 
 const Stack = createStackNavigator();
 const AppNavigation = () => {
@@ -44,6 +45,13 @@ const AppNavigation = () => {
         <Stack.Screen
           name="StoryWrite"
           component={StoryWrite}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="ReadStory"
+          component={ReadStory}
           options={{
             headerShown: false,
           }}

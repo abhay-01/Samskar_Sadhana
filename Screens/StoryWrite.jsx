@@ -11,6 +11,8 @@ import {
 import { LinearGradient } from "expo-linear-gradient";
 import {Ionicons} from "@expo/vector-icons"
 import Feather from "@expo/vector-icons/Feather"
+import {MaterialIcons} from "@expo/vector-icons"
+import { useNavigation } from "@react-navigation/native";
 
 const StoryWrite = () => {
   const [title, setTitle] = useState("");
@@ -37,6 +39,7 @@ const StoryWrite = () => {
   const addImage = () => {
     setImages([...images, ""]);
   };
+
 
   return (
     <View style={styles.container}>
@@ -123,6 +126,10 @@ const StoryWrite = () => {
       <TouchableOpacity style={styles.button} onPress={handleSave}>
         <Text style={styles.buttonText}>Save Story</Text>
       </TouchableOpacity>
+
+      <TouchableOpacity style={styles.uploadButton}>
+      <MaterialIcons name="file-upload" size={24} color="white" />
+    </TouchableOpacity>
 
       {/* Bottom tab bar */}
       <LinearGradient
@@ -271,6 +278,22 @@ const styles = StyleSheet.create({
   bottomNavText: {
     marginTop: 5,
     fontSize: 12,
+  },
+  uploadButton: {
+    position: 'absolute',
+    right: 20,
+    bottom: 60,
+    backgroundColor: '#007bff',
+    borderRadius: 50, 
+    width: 50, 
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
 });
 
