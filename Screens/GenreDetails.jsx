@@ -17,6 +17,10 @@ function MediaDetails() {
     Description about the genre Lorem ipsum dolor sit amet, consectetur
     adipiscing elit.
     </Text>
+    <Text style={styles.description}>
+    Description about the character Traits it offers Lorem ipsum dolor sit amet, consectetur
+    adipiscing elit.
+    </Text>
     </View>
       <Button
         icon={
@@ -36,16 +40,17 @@ function MediaDetails() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    // justifyContent: 'center',
     alignItems: 'center',
   },
   image: {
     width: 300,
     height: 300,
     marginBottom: 20,
+    marginTop: 50
   },
   description: {
-    fontSize: 16,
+    fontSize: 18,
     color: "black",
     lineHeight: 24,
   },
