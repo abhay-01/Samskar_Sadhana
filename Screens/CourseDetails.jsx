@@ -6,14 +6,16 @@ import {
   ImageBackground,
   TouchableOpacity,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 import Feather from "@expo/vector-icons/Feather";
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const CourseDetails = () => {
   const navigation = useNavigation();
+  const [isIconPressed, setIsIconPressed] = useState(false);
   return (
     <ImageBackground
       source={require("../assets/graphics/2.png")}
@@ -50,10 +52,22 @@ const CourseDetails = () => {
               "Story Title 4",
               "Story Title 5",
             ].map((title, index) => (
+              <TouchableOpacity onPress={() => console.log(`Title ${title} clicked`)}>
               <View style={styles.storyItem} key={index}>
                 <Text style={styles.storyTitle}>{title}</Text>
                 <Text style={styles.storyLength}>{20 + index * 5} mins</Text>
+                <TouchableOpacity
+              onPress={() => {
+                setIsIconPressed(true);
+                console.log(`Playing ${title}`);
+                navigation.navigate('GenreDetails.jsx');
+                setTimeout(() => setIsIconPressed(false), 200);
+              }}
+            >
+                <Icon name="play-circle" size={30}  />
+                </TouchableOpacity>
               </View>
+              </TouchableOpacity>
             ))}
           </ScrollView>
         </View>
