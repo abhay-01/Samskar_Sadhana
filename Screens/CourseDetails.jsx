@@ -35,7 +35,19 @@ const CourseDetails = () => {
       </TouchableOpacity>
       <View style={styles.container}>
         <View style={styles.detailsContainer}>
-          <Text style={styles.genreName}>Genre Name</Text>
+        <View style = {{
+          flexDirection:"row",
+          justifyContent:"space-between"
+        }}>
+        <Text style={styles.genreName}>Genre Name</Text>
+        <TouchableOpacity onPress={()=> navigation.navigate("StoryGenerate")}>
+        <Text style = {{
+          marginTop:6,
+          textDecorationLine:"underline",
+          fontWeight:"bold"
+        }}> AI GENERATED</Text>
+        </TouchableOpacity>
+        </View>
           <Text style={styles.rating}>4.5 ⭐ (120 minutes)</Text>
           <Text style={styles.description}>
             Description about the genre Lorem ipsum dolor sit amet, consectetur

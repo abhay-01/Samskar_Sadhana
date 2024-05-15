@@ -9,6 +9,7 @@ import CourseDetails from "../Screens/CourseDetails";
 import StoryWrite from "../Screens/StoryWrite";
 import ReadStory from "../Screens/ReadStory";
 import GenreDetails from "../Screens/GenreDetails"
+import StoryGenerate from "../Screens/StoryGenerate";
 
 const Stack = createStackNavigator();
 const AppNavigation = () => {
@@ -64,6 +65,17 @@ const AppNavigation = () => {
             headerShown: false,
           }}
         />
+
+        <Stack.Screen
+        name = "StoryGenerate"
+        component={StoryGenerate}
+        options={{
+          headerShown:false
+        }}
+        />
+
+
+        
       </Stack.Navigator>
     </NavigationContainer>
   );
