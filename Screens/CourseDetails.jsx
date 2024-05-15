@@ -6,15 +6,17 @@ import {
   ImageBackground,
   TouchableOpacity,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 import Feather from "@expo/vector-icons/Feather";
 import { BookOpenIcon } from "react-native-heroicons/outline";
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const CourseDetails = () => {
   const navigation = useNavigation();
+  const [isIconPressed, setIsIconPressed] = useState(false);
   return (
     <ImageBackground
       source={require("../assets/graphics/2.png")}
@@ -33,7 +35,19 @@ const CourseDetails = () => {
       </TouchableOpacity>
       <View style={styles.container}>
         <View style={styles.detailsContainer}>
-          <Text style={styles.genreName}>Genre Name</Text>
+        <View style = {{
+          flexDirection:"row",
+          justifyContent:"space-between"
+        }}>
+        <Text style={styles.genreName}>Genre Name</Text>
+        <TouchableOpacity onPress={()=> navigation.navigate("StoryGenerate")}>
+        <Text style = {{
+          marginTop:6,
+          textDecorationLine:"underline",
+          fontWeight:"bold"
+        }}> AI GENERATED</Text>
+        </TouchableOpacity>
+        </View>
           <Text style={styles.rating}>4.5 ⭐ (120 minutes)</Text>
           <Text style={styles.description}>
             Description about the genre Lorem ipsum dolor sit amet, consectetur
@@ -51,10 +65,22 @@ const CourseDetails = () => {
               "Story Title 4",
               "Story Title 5",
             ].map((title, index) => (
+              <TouchableOpacity onPress={() => console.log(`Title ${title} clicked`)}>
               <View style={styles.storyItem} key={index}>
                 <Text style={styles.storyTitle}>{title}</Text>
                 <Text style={styles.storyLength}>{20 + index * 5} mins</Text>
+                <TouchableOpacity
+              onPress={() => {
+                setIsIconPressed(true);
+                console.log(`Playing ${title}`);
+                navigation.navigate('GenreDetails');
+                setTimeout(() => setIsIconPressed(false), 200);
+              }}
+            >
+                <Icon name="play-circle" size={30}  />
+                </TouchableOpacity>
               </View>
+              </TouchableOpacity>
             ))}
           </ScrollView>
         </View>
@@ -70,8 +96,6 @@ const CourseDetails = () => {
         </TouchableOpacity>
         <TouchableOpacity style={styles.bottomNavItem} onPress={()=> navigation.navigate("ReadStory")}>
             <BookOpenIcon name="book-open" size={24} color="#000" />
-
-
             <Text style={styles.bottomNavText}>Read</Text>
           </TouchableOpacity>
         <TouchableOpacity
