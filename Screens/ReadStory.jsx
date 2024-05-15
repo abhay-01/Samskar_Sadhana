@@ -8,6 +8,10 @@ import {
 } from "react-native";
 import React from "react";
 import image1 from "./../assets/graphics/Read.jpg";
+import image2 from "./../assets/graphics/main2.png";
+import image3 from "./../assets/graphics/main3.png";
+import image4 from "./../assets/graphics/mai4.png";
+import image5 from "./../assets/graphics/main5.png";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
@@ -23,13 +27,13 @@ const ReadStory = () => {
         case 0:
           return { imageUri: image1, qualities: ["Kindness"] };
         case 1:
-          return { imageUri: image1, qualities: ["Resilience"] };
+          return { imageUri: image2, qualities: ["Resilience"] };
         case 2:
-          return { imageUri: image1, qualities: ["Creativity"] };
+          return { imageUri: image3, qualities: ["Courage"] };
         case 3:
-          return { imageUri: image1, qualities: ["Honesty"] };
+          return { imageUri: image4, qualities: ["Honesty"] };
         case 4:
-          return { imageUri: image1, qualities: ["Gratitude"] };
+          return { imageUri: image5, qualities: ["Gratitude"] };
         case 5:
           return { imageUri: image1, qualities: ["Patience"] };
 
@@ -55,9 +59,23 @@ const ReadStory = () => {
       >
         Diverse Genres to Learn!
       </Text>
+      <TouchableOpacity
+        onPress={() => navigation.goBack()}
+        style={{
+          position: "absolute",
+          top: 40,
+          left: 20,
+          zIndex: 1,
+        }}
+      >
+        <Ionicons name="arrow-back" size={24} color="black" />
+      </TouchableOpacity>
 
       <LinearGradient colors={["white", "#00BFFF"]} style={styles.gradient}>
-        <ScrollView contentContainerStyle={styles.container} showsVerticalScrollIndicator = {false}>
+        <ScrollView
+          contentContainerStyle={styles.container}
+          showsVerticalScrollIndicator={false}
+        >
           {cards.map((card, index) => (
             <View key={index} style={styles.card}>
               <TouchableOpacity

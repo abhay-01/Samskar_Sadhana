@@ -64,7 +64,7 @@ const CourseDetails = () => {
         style={styles.bottomNavContainer}
         colors={["white", "skyblue"]}
       >
-        <TouchableOpacity style={styles.bottomNavItem}>
+        <TouchableOpacity style={styles.bottomNavItem} onPress={()=> navigation.navigate("HomeScreen")}>
           <Ionicons name="home-outline" size={24} color="#000" />
           <Text style={styles.bottomNavText}>Home</Text>
         </TouchableOpacity>

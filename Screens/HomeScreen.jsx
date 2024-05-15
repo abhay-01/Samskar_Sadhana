@@ -12,8 +12,8 @@ import { TextInput } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
-import Feather from "@expo/vector-icons/Feather"
-import {BookOpenIcon} from "react-native-heroicons/outline"
+import Feather from "@expo/vector-icons/Feather";
+import { BookOpenIcon } from "react-native-heroicons/outline";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -37,56 +37,62 @@ const HomeScreen = () => {
           <TextInput placeholder="Search for tutors" style={styles.input} />
         </View>
 
-        <ScrollView>
-          {/* Popular genres */}
-          <View style={styles.genresContainer}>
-            <Text style={styles.title}>Popular Genres</Text>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-              {/* Replace with your own genre components */}
-              <View style={styles.genreCard}>
-
-                <TouchableOpacity onPress={()=> navigation.navigate("CourseDetails")}>
+        {/* Popular genres */}
+        <View style={styles.genresContainer}>
+          <Text style={styles.title}>Popular Genres</Text>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {/* Replace with your own genre components */}
+            <View style={styles.genreCard}>
+              <TouchableOpacity
+                onPress={() => navigation.navigate("CourseDetails")}
+              >
                 <Image source={require("../assets/graphics/2.png")} />
-                </TouchableOpacity>
-                <Text>Genre 1</Text>
-              </View>
-              <View style={styles.genreCard}>
-              <TouchableOpacity onPress={()=> navigation.navigate("CourseDetails")}>
+              </TouchableOpacity>
+              <Text>Genre 1</Text>
+            </View>
+            <View style={styles.genreCard}>
+              <TouchableOpacity
+                onPress={() => navigation.navigate("CourseDetails")}
+              >
                 <Image source={require("../assets/graphics/2.png")} />
-                </TouchableOpacity>
-                <Text>Genre 2</Text>
-              </View>
-              <View style={styles.genreCard}>
-
-              <TouchableOpacity onPress={()=> navigation.navigate("CourseDetails")}>
+              </TouchableOpacity>
+              <Text>Genre 2</Text>
+            </View>
+            <View style={styles.genreCard}>
+              <TouchableOpacity
+                onPress={() => navigation.navigate("CourseDetails")}
+              >
                 <Image source={require("../assets/graphics/2.png")} />
-                </TouchableOpacity>
-                <Text>Genre 1</Text>
-              </View>
-              <View style={styles.genreCard}>
-
-              <TouchableOpacity onPress={()=> navigation.navigate("CourseDetails")}>
+              </TouchableOpacity>
+              <Text>Genre 1</Text>
+            </View>
+            <View style={styles.genreCard}>
+              <TouchableOpacity
+                onPress={() => navigation.navigate("CourseDetails")}
+              >
                 <Image source={require("../assets/graphics/2.png")} />
-                </TouchableOpacity>
-                <Text>Genre 1</Text>
-              </View>
-              <View style={styles.genreCard}>
-
-              <TouchableOpacity onPress={()=> navigation.navigate("CourseDetails")}>
+              </TouchableOpacity>
+              <Text>Genre 1</Text>
+            </View>
+            <View style={styles.genreCard}>
+              <TouchableOpacity
+                onPress={() => navigation.navigate("CourseDetails")}
+              >
                 <Image source={require("../assets/graphics/2.png")} />
-                </TouchableOpacity>
-                <Text>Genre 1</Text>
-              </View>
-              <View style={styles.genreCard}>
-
-              <TouchableOpacity onPress={()=> navigation.navigate("CourseDetails")}>
+              </TouchableOpacity>
+              <Text>Genre 1</Text>
+            </View>
+            <View style={styles.genreCard}>
+              <TouchableOpacity
+                onPress={() => navigation.navigate("CourseDetails")}
+              >
                 <Image source={require("../assets/graphics/2.png")} />
-                </TouchableOpacity>
-                <Text>Genre 2</Text>
-              </View>
-            </ScrollView>
-          </View>
-
+              </TouchableOpacity>
+              <Text>Genre 2</Text>
+            </View>
+          </ScrollView>
+        </View>
+        <ScrollView vertical showsVerticalScrollIndicator={false}>
           {/* Famous tutors */}
           <View style={styles.tutorsContainer}>
             <Text style={styles.title}>Famous Tutors</Text>
@@ -100,25 +106,97 @@ const HomeScreen = () => {
               </View>
             </ScrollView>
           </View>
+
+          <View
+            style={{
+              height: 200,
+            }}
+          >
+            <Text style={styles.title}>Characterictics</Text>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              {/* Replace with your own genre components */}
+              <View style={styles.genreCard}>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("CourseDetails")}
+                >
+                  <Image
+                    source={require("../assets/graphics/main1.png")}
+                    style={{
+                      width: 150,
+                      height: 150,
+                      resizeMode: "cover",
+                      borderRadius: 10,
+                    }}
+                  />
+                </TouchableOpacity>
+                <Text>Genre 1</Text>
+              </View>
+              <View style={styles.genreCard}>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("CourseDetails")}
+                >
+                  <Image source={require("../assets/graphics/main2.png")} />
+                </TouchableOpacity>
+                <Text>Genre 2</Text>
+              </View>
+              <View style={styles.genreCard}>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("CourseDetails")}
+                >
+                  <Image source={require("../assets/graphics/main3.png")} />
+                </TouchableOpacity>
+                <Text>Genre 1</Text>
+              </View>
+              <View style={styles.genreCard}>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("CourseDetails")}
+                >
+                  <Image source={require("../assets/graphics/mai4.png")} />
+                </TouchableOpacity>
+                <Text>Genre 1</Text>
+              </View>
+              <View style={styles.genreCard}>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("CourseDetails")}
+                >
+                  <Image source={require("../assets/graphics/main5.png")} />
+                </TouchableOpacity>
+                <Text>Genre 1</Text>
+              </View>
+              <View style={styles.genreCard}>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("CourseDetails")}
+                >
+                  <Image source={require("../assets/graphics/main6.png")} />
+                </TouchableOpacity>
+                <Text>Genre 2</Text>
+              </View>
+            </ScrollView>
+          </View>
         </ScrollView>
 
         {/* Bottom tab bar */}
-        <LinearGradient style={styles.bottomNavContainer} colors={['white', 'skyblue']}>
+        <LinearGradient
+          style={styles.bottomNavContainer}
+          colors={["white", "skyblue"]}
+        >
           <TouchableOpacity style={styles.bottomNavItem}>
             <Ionicons name="home-outline" size={24} color="#000" />
             <Text style={styles.bottomNavText}>Home</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.bottomNavItem} onPress={()=> navigation.navigate("ReadStory")}>
+          <TouchableOpacity
+            style={styles.bottomNavItem}
+            onPress={() => navigation.navigate("ReadStory")}
+          >
             <BookOpenIcon name="book-open" size={24} color="#000" />
-
 
             <Text style={styles.bottomNavText}>Read</Text>
           </TouchableOpacity>
           <TouchableOpacity
-          style={styles.bottomNavItem}
-          onPress={() => navigation.navigate("StoryWrite")}
-        >
-                    <Feather name="plus-circle" size={34} color="#000" />
+            style={styles.bottomNavItem}
+            onPress={() => navigation.navigate("StoryWrite")}
+          >
+            <Feather name="plus-circle" size={34} color="#000" />
             <Text style={styles.bottomNavText}>Write</Text>
           </TouchableOpacity>
 
@@ -181,7 +259,6 @@ const styles = StyleSheet.create({
   },
   genresContainer: {
     marginTop: 20,
-
   },
   title: {
     fontSize: 20,

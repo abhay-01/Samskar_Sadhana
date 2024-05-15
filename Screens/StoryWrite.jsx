@@ -9,10 +9,11 @@ import {
   Image,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import {Ionicons} from "@expo/vector-icons"
-import Feather from "@expo/vector-icons/Feather"
-import {MaterialIcons} from "@expo/vector-icons"
+import { Ionicons, MaterialIcons } from "@expo/vector-icons";
+import DocumentPicker from "react-native-document-picker";
 import { useNavigation } from "@react-navigation/native";
+import Feather from "@expo/vector-icons/Feather";
+
 
 const StoryWrite = () => {
   const [title, setTitle] = useState("");
@@ -22,6 +23,8 @@ const StoryWrite = () => {
   const [isUnderline, setIsUnderline] = useState(false);
   const [pointers, setPointers] = useState([]);
   const [images, setImages] = useState([]);
+
+  const navigation = useNavigation();
 
   const handleSave = () => {
     // Implement logic to save the story
@@ -40,6 +43,24 @@ const StoryWrite = () => {
     setImages([...images, ""]);
   };
 
+  const handleUploadAudio = async () => {
+    try {
+      const res = await DocumentPicker.pick({
+        type: [DocumentPicker.types.audio],
+      });
+
+      // Do something with the selected audio file
+      console.log("Selected audio:", res);
+    } catch (err) {
+      if (DocumentPicker.isCancel(err)) {
+        // User cancelled the picker
+        console.log("User cancelled the audio picker");
+      } else {
+        // Error handling
+        console.error("Error selecting audio:", err);
+      }
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -127,9 +148,9 @@ const StoryWrite = () => {
         <Text style={styles.buttonText}>Save Story</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.uploadButton}>
-      <MaterialIcons name="file-upload" size={24} color="white" />
-    </TouchableOpacity>
+      <TouchableOpacity style={styles.uploadButton} onPress={handleUploadAudio}>
+        <MaterialIcons name="file-upload" size={24} color="white" />
+      </TouchableOpacity>
 
       {/* Bottom tab bar */}
       <LinearGradient
@@ -280,16 +301,16 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
   uploadButton: {
-    position: 'absolute',
+    position: "absolute",
     right: 20,
     bottom: 60,
-    backgroundColor: '#007bff',
-    borderRadius: 50, 
-    width: 50, 
+    backgroundColor: "#007bff",
+    borderRadius: 50,
+    width: 50,
     height: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-    shadowColor: '#000',
+    justifyContent: "center",
+    alignItems: "center",
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
